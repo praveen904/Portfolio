@@ -1,12 +1,20 @@
 let menuIcon=document.querySelector('#menu-icon');
 let navbar=document.querySelector('.navbar');
+let navLinks=document.querySelectorAll('header nav a');
+
 menuIcon.onclick=()=>{
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 };
 
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+    });
+});
+
 let sections=document.querySelectorAll('section');
-let navLinks=document.querySelectorAll('header nav a');
 
 window.onscroll=()=>{
     sections.forEach(sec=>{
